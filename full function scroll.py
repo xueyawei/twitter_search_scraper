@@ -134,7 +134,7 @@ def load_page(q,until_date):
     until_date = until_date
     # Due to twitter timezone bug, until method cannot return data between 20:00-24:00(EST/DST UTC -4:00).
     # After 11-06-2016, delta should be timedelta(days=1,hours=5) due to DST is not used
-    delta = timedelta(days=1,hours=4)
+    delta = timedelta(days=1,hours=5)
     driver.get(url_generator(q,until_date))
     content =driver.find_element_by_id("stream-items-id").find_elements_by_class_name("tweet")
     check_data(content,until_date-delta)
